@@ -1,4 +1,14 @@
 const fs = require("fs");
 const path = require("path");
 
-fs.makedir(path.join(__dirname, "test"));
+// CREATE DIRECTORY
+
+// fs.mkdir(path.join(__dirname, "test"), (err) => {
+//   if (err) {
+//     throw err;
+//   }
+
+//   console.log("Directory created");
+// });
+
+const filePath = path.join(__dirname, "test", "text.txt");
