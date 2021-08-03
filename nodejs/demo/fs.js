@@ -29,17 +29,20 @@ const path = require("path");
 //   });
 // });
 const filePath = path.join(__dirname, "test", "text.txt");
-fs.readFile(filePath, "utf-8", (err, content) => {
-  if (err) {
-    throw err;
-  }
-  console.log("Content: ", content);
-  // * Content from buffer * //
+fs.readFile(
+  filePath,
+  /* "utf8", */ (err, content) => {
+    if (err) {
+      throw err;
+    }
+    console.log("Content: ", content.toString());
+    // * Content from buffer * //
 
-  //   fs.readFile(filePath, (err, content) => {
-  //     if (err) {
-  //       throw err;
-  //     }
-  //   const data = Buffer.from(content);
-  //   console.log("Content: ", data.toString());
-});
+    //   fs.readFile(filePath, (err, content) => {
+    //     if (err) {
+    //       throw err;
+    //     }
+    //   const data = Buffer.from(content);
+    //   console.log("Content: ", data.toString());
+  }
+);
