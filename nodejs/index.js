@@ -71,11 +71,25 @@ const numbers = rest.map(parsNum); */
   }
 } */
 
-const chalk = require("chalk");
+/* const chalk = require("chalk");
 const text = require("./data");
 
 console.log(chalk.red("Hello Igal"));
 
 console.log(chalk.blue(text));
 
-console.log(__dirname);
+console.log(__dirname); */
+
+const http = require("http");
+
+const server = http.createServer((req, res) => {
+  res.writeHead(200, {
+    "Content-type": "text/plain",
+  });
+
+  res.end("<h1>Hello Igal</h1>");
+});
+
+server.listen(3001, () => {
+  console.log("Server has been started...");
+});
