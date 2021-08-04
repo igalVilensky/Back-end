@@ -81,15 +81,22 @@ console.log(chalk.blue(text));
 console.log(__dirname); */
 
 const http = require("http");
-
+const fs = require("fs");
+const path = require("path");
 const server = http.createServer((req, res) => {
-  res.writeHead(200, {
-    "Content-type": "text/plain",
-  });
-
-  res.end("<h1>Hello Igal</h1>");
+  if (req.url === "/") {
+    fs.readFile(path.join(__dirname, "public", "index.html"), (err, data) => {
+      if (err) {
+        throw err;
+      }
+      res.writeHead(200, {
+        "Content-type": "text/html",
+      });
+      res.end(data);
+    });
+  }
 });
 
-server.listen(3001, () => {
+server.listen(3000, () => {
   console.log("Server has been started...");
 });
